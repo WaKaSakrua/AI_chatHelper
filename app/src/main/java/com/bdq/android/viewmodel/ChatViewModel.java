@@ -39,7 +39,7 @@ public class ChatViewModel extends ViewModel {
         messageList.add(new Message(
                 UUID.randomUUID().toString(),
                 conversationId,
-                "你好！我�?AI 助手，有什么可以帮你的�?,
+                "你好！我�?AI 助手，有什么可以帮你的",
                 false,
                 System.currentTimeMillis() - 60000
         ));
@@ -47,7 +47,8 @@ public class ChatViewModel extends ViewModel {
     }
 
     /**
-     * 发送消�?     */
+     * 发送消息
+         */
     public void sendMessage(String content) {
         if (content == null || content.trim().isEmpty()) {
             return;
@@ -64,13 +65,14 @@ public class ChatViewModel extends ViewModel {
         messageList.add(userMsg);
         _messages.setValue(messageList);
 
-        // 2. 模拟 AI 回复（延�?1 秒，以后换成真实 API 调用�?        new android.os.Handler().postDelayed(new Runnable() {
+        // 2. 模拟 AI 回复（延迟 1 秒，以后换成真实 API 调用）
+        new android.os.Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Message aiMsg = new Message(
                         UUID.randomUUID().toString(),
                         conversationId,
-                        "收到你的消息：\"" + content.trim() + "\"\n（这是模拟回复，以后接入真实 API�?,
+                        "收到你的消息：\"" + content.trim() + "\"\n（这是模拟回复，以后接入真实 API）",
                         false,
                         System.currentTimeMillis()
                 );
